@@ -44,22 +44,38 @@ class MainActivity : ComponentActivity() {
                                 defaultValue = "Cliente Genérico"
                             })
                         ) {
-                            PedidosScreen(modifier = Modifier.padding(innerPadding), navController, it.arguments?.getString("cliente"))
+                            PedidosScreen(
+                                modifier = Modifier.padding(innerPadding),
+                                navController,
+                                it.arguments?.getString("cliente")
+                            )
                         }
                         composable(
-                            route = "perfil/{nome}/{idade}",
+                            route = "perfil/{nome}/{idade}/{faculdade}",
                             arguments = listOf(
                                 navArgument("nome") { type = NavType.StringType },
-                                navArgument("idade") { type = NavType.IntType }
+                                navArgument("idade") { type = NavType.IntType },
+                                navArgument("faculdade") { type = NavType.StringType },
                             )
                         ) {
-                            val nome: String? = it.arguments?.getString("nome", "Usuário Genérico")
-                            val idade: Int? = it.arguments?.getInt("idade", 0)
+                            val nome: String? = it.arguments?.getString(
+                                "nome",
+                                "Usuário Genérico"
+                            )
+                            val idade: Int? = it.arguments?.getInt(
+                                "idade",
+                                0
+                            )
+                            val faculdade: String? = it.arguments?.getString(
+                                "faculdade",
+                                "Faculdade genérica"
+                            )
                             PerfilScreen(
                                 modifier = Modifier.padding(innerPadding),
                                 navController,
                                 nome!!,
-                                idade!!
+                                idade!!,
+                                faculdade!!
                             )
                         }
                     }

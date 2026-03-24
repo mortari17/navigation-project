@@ -21,7 +21,8 @@ fun PerfilScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
     nome: String,
-    idade: Int
+    idade: Int,
+    faculdade: String,
 ) {
     Box(
         modifier = modifier
@@ -30,7 +31,7 @@ fun PerfilScreen(
             .padding(32.dp)
     ) {
         Text(
-            text = "PERFIL - $nome tem $idade anos",
+            text = "PERFIL - $nome tem $idade anos e estuda na $faculdade",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
